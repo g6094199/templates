@@ -15,10 +15,20 @@ standard: eu
 
 ## Known dpIds
 
-| dpId    | Function        | Data-type | Remarks 
-|---------|-----------------|-----------|----------------
-|1        | device power    | boolean   |
-|16       | target temp     | integer   |
+| dpId    | Function                | Data-type | Remarks 
+|---------|-------------------------|-----------|----------------
+|1        | device power            | boolean   | `0` = off, `1` = on
+|2        | set mode                | enum      | `0` = auto, `1` = manual, Achtung! 102 muss auf 1 (TuyaSend4 102,)
+|10       | anti freeze             | boolean   | `0` = off, `1` = on
+|16       | target temp             | integer   | 2 digit
+|19       | set max temp            | integer   | 2 digit
+|26       | set min temp            | integer   | 2 digit
+|27       | temp calibration        | boolean   | +/-, 2 digit offset
+|38       | set timer               | hex       |
+|40       | lock thermostat         | integer   | `-1`= lock, `1` = unlock
+|43       | sensor mode             | enum      | `0` = internal sensor, `1` = external, `2` = both
+|101      | switching differential  | integer   |
+|102      | ?                       | enum      |
 
 examples:
 - Tuyasend  1,0  - switch device off
